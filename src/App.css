@@ -1,0 +1,17 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.tasksContainer {
+  color: rgb(131, 234, 254);
+  align-items: center;
+  text-align: center;
+
+}
+
+.card {
+  padding: 2em;
+}
