@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import './App.css';
+import tasksData from "./assets/tasks.json" 
 
 function App() {
-  const [tasks, setTasks] = useState(['Create Todo List', 'Add to the list']);
+  const [tasks, setTasks] = useState(tasksData);
+
+  const renderTask = (task) => {
+    console.log(task)
+    return`ID: ${task.id}, ${task.description}, COMPLETED: ${task.completed ? "Yes" : "No"}`
+  }
+
   const addNewTask = (e) => {
     e.preventDefault();
-    let newTask = document.getElementById("taskInput");
-    if (newTask) {
-      setTasks(prevTasks => [...prevTasks, newTask]);
-    }
-    console.log(tasks)
+    newTask = {id: tasks.length + 1}
+    setTasks(tasks => [...tasks, newTask]);
   };
-
+  // const newTask = { id: 16, task: "Buy groceries", completed: false };
 
   return (
     <>
@@ -25,9 +29,7 @@ function App() {
       </div>
       <div className="tasksContainer">
         <ul id="tasks">
-          {tasks.map((task, index) => (
-            <li key={index}>{task}</li>
-          ))}
+          {tasks.map((task, i) => <li key={i}>{renderTask(task)}</li>)}
         </ul>
       </div>
     </>
