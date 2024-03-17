@@ -7,7 +7,7 @@ function App() {
   const [newTaskInput, setNewTaskInput] = useState('')
 
 
-   const addNewTask = (e) => {
+   const addNewTask = () => {
      const newTask = {id: tasks.length + 1, description: newTaskInput, completed: false};
      setTasks([...tasks, newTask]);
    };
